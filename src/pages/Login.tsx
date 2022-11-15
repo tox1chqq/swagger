@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {FieldValues, useForm} from "react-hook-form";
+import {loginUserAction} from "../redux/profileReducer/actions";
+import {useDispatch} from "react-redux";
 
 export const Login = () => {
+    const dispatch = useDispatch()
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data:FieldValues) =>  dispatch(loginUserAction(data.email,data.password))
+
     return (
         <div className="flex bg-auth-image min-h-screen justify-center items-center">
             <div className="rounded-3xl bg-white text-center py-4 px-8">
@@ -9,15 +17,17 @@ export const Login = () => {
                 <h4 className="text-xs font-medium mb-10 text-gray-600">
                     Enter your credentials
                 </h4>
-                <form className="gap-4 grid">
+                <form className="gap-4 grid" onSubmit={handleSubmit(onSubmit)}>
                     <input
                         className="min-w-[275px] rounded-lg min-h-[50px] px-4 border-2 border-input-border"
-                        placeholder="Enter your login"
+                        placeholder="Enter your email"
+                        {...register("email")}
                     />
                     <input
                         className="min-w-[275px] rounded-lg min-h-[50px] px-4 border-2 border-input-border"
                         placeholder="Enter your password"
                         type="password"
+                        {...register("password")}
                     />
                     <Link
                         to="/auth/create-account"

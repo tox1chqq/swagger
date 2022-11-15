@@ -9,6 +9,11 @@ export interface IRegistrationData {
     password: string;
 }
 
+export interface ILoginData {
+    email: string;
+    password: string;
+}
+
 export interface IUser {
     id: string;
     email: string;

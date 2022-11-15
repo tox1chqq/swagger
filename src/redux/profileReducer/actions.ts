@@ -1,10 +1,6 @@
 import { CREATE_NEW_USER, LOGIN_USER } from '../redux-types';
 
-export const createNewUserAction: (
-    email: string,
-    name: string,
-    password: string
-) => void = (email, name, password) => {
+export const createNewUserAction =  (email:string, name:string, password:string) => {
     return { type: CREATE_NEW_USER, payload: { email, name, password } };
 };
 

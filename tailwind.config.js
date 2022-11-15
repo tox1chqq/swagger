@@ -17,6 +17,9 @@ module.exports = {
             },
             animation: {
                 pan: 'pan 6s infinite alternate linear'
+            },
+            backgroundSize:{
+                '100': '100%'
             }
         }
     },
