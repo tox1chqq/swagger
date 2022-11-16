@@ -21,6 +21,11 @@ export interface IUser {
     role: Role;
 }
 
+export interface CustomAction {
+    type: string;
+    payload?: any;
+}
+
 enum Role {
     user = 'user',
     admin = 'admin'
